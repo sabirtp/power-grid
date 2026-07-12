@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function () {
     { cat: 'Auditorium', name: 'Royal Auditorium', place: 'Pallipadi', desc: 'Complete auditorium electrical works' }
   ];
 
-  var CATEGORIES = ['All', 'Commercial', 'Industrial', 'Educational', 'Healthcare', 'Hospitality', 'Auditorium'];
+  var CATEGORIES = ['Commercial', 'Industrial', 'Educational', 'Healthcare', 'Hospitality', 'Auditorium'];
 
   var filterRow = document.getElementById('filterRow');
   var projectGrid = document.getElementById('projectGrid');
@@ -157,12 +157,14 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     var visibleCount = 0;
     projectGrid.querySelectorAll('.project-card').forEach(function (card) {
-      var match = cat === 'All' || card.getAttribute('data-cat') === cat;
+      var match = card.getAttribute('data-cat') === cat;
       card.classList.toggle('hide', !match);
       if (match) visibleCount++;
     });
     emptyState.classList.toggle('show', visibleCount === 0);
   }
+
+  setActiveCategory(CATEGORIES[0]);
 
   /* ---------- Clients accordion ---------- */
   var CLIENTS = [
