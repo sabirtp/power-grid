@@ -6,7 +6,8 @@
 <title>Power Grid — Electrical Engineering & Contractors | Manjeri, Kerala</title>
 <meta name="description" content="Power Grid Electrical Engineering and Contractors — HT/LT contracting, substation construction, DG commissioning and electrical consulting across Kerala since 1999.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,600;0,700;0,800;1,700;1,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -29,7 +30,7 @@
 </div>
 
 <!-- NAV -->
-<nav class="nav">
+<nav class="nav" id="nav">
   <div class="container nav-inner">
     <a href="#top" class="nav-brand">
       <img src="logo.jpg" alt="Power Grid — Electrical Engineering & Contractors">
@@ -48,41 +49,29 @@
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- COVER / HERO -->
 <header class="hero" id="top">
-  <div class="container hero-grid">
-    <div>
-      <div class="hero-badge"><span class="bolt">&#9889;</span> Trusted Electrical Engineering Company</div>
-      <h1>Powering Kerala's<br>buildings <span class="accent">with precision.</span></h1>
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-tint" aria-hidden="true"></div>
+  <div class="container hero-inner">
+    <div class="hero-copy">
+      <div class="tag-slant"><span>&#9889; Trusted Electrical Engineering Company</span></div>
+      <h1>Powering Kerala's<br>buildings <span class="brush">with precision.</span></h1>
       <p class="lead">Professional HT/LT electrical contracting, substation construction, DG set commissioning and full-cycle consulting — for hospitals, industries, colleges and commercial establishments across Kerala and pan India.</p>
+      <ul class="hero-checks">
+        <li>25+ years of experience</li>
+        <li>Safe &amp; professional setup</li>
+      </ul>
       <div class="hero-ctas">
         <a href="#services" class="btn btn-primary">Our Services</a>
         <a href="#contact" class="btn btn-outline">Contact Us</a>
       </div>
     </div>
-    <div class="hero-visual">
-      <div class="stamp-wrap">
-        <svg class="stamp-spin" viewBox="0 0 400 400" aria-hidden="true">
-          <defs>
-            <path id="stampCircle" d="M 200,200 m -160,0 a 160,160 0 1,1 320,0 a 160,160 0 1,1 -320,0" />
-          </defs>
-          <circle cx="200" cy="200" r="188" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
-          <circle cx="200" cy="200" r="160" fill="none" stroke="rgba(255,255,255,0.28)" stroke-width="1.5"/>
-          <circle cx="200" cy="200" r="128" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
-          <text fill="#F5A623" font-family="Poppins, sans-serif" font-size="15" font-weight="700" letter-spacing="3">
-            <textPath href="#stampCircle" startOffset="2%">POWERING KERALA'S BUILDINGS</textPath>
-          </text>
-          <text fill="#B9C1CC" font-family="Poppins, sans-serif" font-size="15" font-weight="700" letter-spacing="3">
-            <textPath href="#stampCircle" startOffset="52%">MANJERI · MALAPPURAM · KERALA</textPath>
-          </text>
-        </svg>
-        <div class="stamp-center">
-          <div class="stamp-logo-plate"><img src="logo.jpg" alt="Power Grid"></div>
-          <div class="estd">ESTD · 1999</div>
-        </div>
-      </div>
-    </div>
   </div>
+  <svg class="hero-swoosh" viewBox="0 0 1440 140" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,70 C240,10 520,30 820,78 C1100,122 1300,110 1440,50 L1440,140 L0,140 Z" fill="#E0242B"/>
+    <path d="M0,96 C260,48 540,64 840,106 C1110,142 1300,134 1440,88 L1440,140 L0,140 Z" fill="#EAF3FC"/>
+  </svg>
 </header>
 
 <!-- STATS BAND -->
@@ -105,7 +94,7 @@
       <img class="photo-float" src="https://images.unsplash.com/photo-1566417110090-6b15a06ec800?fm=jpg&q=70&w=500&auto=format&fit=crop" alt="Power switch box installation">
     </div>
     <div class="reveal">
-      <div class="eyebrow">About Us</div>
+      <div class="eyebrow"><span>About Us</span></div>
       <h2>Leading electrical contractors in Kerala</h2>
       <div class="quote-card">
         <b>Power Grid</b> Electrical Engineering and Contractors was established in 1999 and has grown into a leading electrical contracting and consulting company with office in Manjeri, Malappuram. We execute projects with long-term client relationships in mind — earning a reputation for perfection, quality, promptness, reliability and safety.
@@ -127,10 +116,10 @@
 </section>
 
 <!-- SERVICES -->
-<section class="section" id="services" style="background:var(--steel-2);">
+<section class="section alt" id="services">
   <div class="container">
     <div class="section-head center reveal">
-      <div class="eyebrow">What We Do</div>
+      <div class="eyebrow"><span>What We Do</span></div>
       <h2>Our services</h2>
       <p>From single-line diagram to final commissioning — contracting and consulting under one roof.</p>
     </div>
@@ -173,25 +162,25 @@
   </div>
 </section>
 
-<!-- PROFICIENCY -->
-<section class="section on-ink" id="expertise">
+<!-- PROFICIENT AREAS -->
+<section class="section" id="expertise">
   <div class="container">
     <div class="section-head center reveal">
-      <div class="eyebrow">Technical Proficiency</div>
+      <div class="eyebrow"><span>Technical Proficiency</span></div>
       <h2>Proficient areas</h2>
       <p>Our engineers work across the full spectrum of electrical systems — from substations and panels to cabling, earthing and AMC.</p>
     </div>
-    <div class="breaker-panel reveal">
-      <div class="breaker-grid" id="breakerGrid"></div>
+    <div class="prof-card reveal">
+      <ul class="prof-list" id="profList"></ul>
     </div>
   </div>
 </section>
 
 <!-- OUR PROCESS -->
-<section class="section on-black">
+<section class="section alt">
   <div class="container">
     <div class="section-head center reveal">
-      <div class="eyebrow">Our Process</div>
+      <div class="eyebrow"><span>Our Process</span></div>
       <h2>How we deliver excellence</h2>
       <p>From first consultation to final handover — a clear process behind every project we execute.</p>
     </div>
@@ -224,20 +213,26 @@
 <section class="section" id="projects">
   <div class="container">
     <div class="section-head center reveal">
-      <div class="eyebrow">Our Work</div>
+      <div class="eyebrow"><span>Our Work</span></div>
       <h2>Featured projects</h2>
-      <p>Click a category to view only those projects — electrification works executed across Kerala and beyond.</p>
+      <p>Click a category to open its projects — electrification works executed across Kerala and beyond.</p>
     </div>
-    <div class="filter-row" id="filterRow" role="tablist" aria-label="Filter projects by category"></div>
-    <div class="project-grid" id="projectGrid"></div>
+    <div class="cat-grid" id="catGrid" role="tablist" aria-label="Project categories"></div>
+    <div class="proj-panel" id="projPanel" hidden>
+      <div class="proj-panel-head">
+        <h3 id="projPanelTitle"></h3>
+        <button class="close-btn" id="projClose" type="button">&#10005; Close</button>
+      </div>
+      <div class="project-grid" id="projectGrid"></div>
+    </div>
   </div>
 </section>
 
 <!-- CLIENTS -->
-<section class="section" id="clients" style="background:var(--steel-2);">
+<section class="section alt" id="clients">
   <div class="container">
     <div class="section-head center reveal">
-      <div class="eyebrow">Who We Serve</div>
+      <div class="eyebrow"><span>Who We Serve</span></div>
       <h2>Featured clients</h2>
       <p>Click a category to expand the full client list.</p>
     </div>
@@ -249,7 +244,7 @@
 <section class="section" id="testimonials">
   <div class="container">
     <div class="section-head center reveal">
-      <div class="eyebrow">Client Feedback</div>
+      <div class="eyebrow"><span>Client Feedback</span></div>
       <h2>What our clients say</h2>
       <p>A few words from clients we've delivered projects for — placeholders, ready to be swapped for real quotes.</p>
     </div>
@@ -283,10 +278,10 @@
 </section>
 
 <!-- WHY US -->
-<section class="section" style="background:var(--steel-2);">
+<section class="section alt">
   <div class="container">
     <div class="section-head center reveal">
-      <div class="eyebrow">Why Choose Us</div>
+      <div class="eyebrow"><span>Why Choose Us</span></div>
       <h2>Engineering excellence you can trust</h2>
       <p>We deliver reliable electrical engineering solutions with quality, safety and customer satisfaction at every stage.</p>
     </div>
@@ -302,12 +297,12 @@
 </section>
 
 <!-- CONTACT -->
-<section class="section" id="contact" style="background:var(--panel); color:var(--white);">
+<section class="section contact" id="contact">
   <div class="container contact-grid">
     <div class="reveal">
-      <div class="eyebrow">Get In Touch</div>
+      <div class="eyebrow"><span>Get In Touch</span></div>
       <h2>Contact us</h2>
-      <p style="color:#B9C1CC; margin-top:14px; line-height:1.7;">Tell us about your project and we'll get back to you with a free quote.</p>
+      <p class="contact-lead">Tell us about your project and we'll get back to you with a free quote.</p>
       <div class="contact-info-list">
         <div class="contact-info-item">
           <div class="ic">&#128205;</div>
