@@ -1,14 +1,16 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-  /* ---------- Mobile nav ---------- */
+  /* ---------- Nav: mobile toggle + solid bar on scroll ---------- */
+  var nav = document.getElementById('nav');
   var navToggle = document.getElementById('navToggle');
   var navLinks = document.getElementById('navLinks');
-  navToggle.addEventListener('click', function () {
-    navLinks.classList.toggle('open');
-  });
+  navToggle.addEventListener('click', function () { navLinks.classList.toggle('open'); });
   navLinks.querySelectorAll('a').forEach(function (a) {
     a.addEventListener('click', function () { navLinks.classList.remove('open'); });
   });
+  function onScroll() { nav.classList.toggle('scrolled', window.scrollY > 90); }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 
   /* ---------- Scroll reveal ---------- */
   var revealEls = document.querySelectorAll('.reveal, .reveal-stagger');
@@ -19,31 +21,25 @@ document.addEventListener('DOMContentLoaded', function () {
         io.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.15 });
+  }, { threshold: 0.12 });
   revealEls.forEach(function (el) { io.observe(el); });
 
-  /* ---------- Animated meter counters ---------- */
+  /* ---------- Animated counters ---------- */
   var counters = document.querySelectorAll('.meter .num[data-count]');
   var counterIO = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
       if (!entry.isIntersecting) return;
       var el = entry.target;
       var target = parseInt(el.getAttribute('data-count'), 10);
-      var noSuffix = el.hasAttribute('data-nosuffix');
-      var suffixEl = el.querySelector('span');
       var duration = 1400;
       var start = null;
       function step(ts) {
         if (!start) start = ts;
         var progress = Math.min((ts - start) / duration, 1);
         var eased = 1 - Math.pow(1 - progress, 3);
-        var current = Math.floor(eased * target);
-        el.childNodes[0].nodeValue = noSuffix ? current : current;
-        if (progress < 1) {
-          requestAnimationFrame(step);
-        } else {
-          el.childNodes[0].nodeValue = target;
-        }
+        el.childNodes[0].nodeValue = Math.floor(eased * target);
+        if (progress < 1) requestAnimationFrame(step);
+        else el.childNodes[0].nodeValue = target;
       }
       requestAnimationFrame(step);
       counterIO.unobserve(el);
@@ -51,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }, { threshold: 0.5 });
   counters.forEach(function (el) { counterIO.observe(el); });
 
-  /* ---------- Proficiency breaker grid ---------- */
+  /* ---------- Proficient areas: plain list ---------- */
   var proficiencyAreas = [
     'Unitised Substations', 'Transformers', 'DG Sets', 'PCC Panels',
     'MCC Panels', 'APFC Panels', 'AMF Panels', 'AC Drive Panels',
@@ -60,15 +56,14 @@ document.addEventListener('DOMContentLoaded', function () {
     'Light Wiring', 'Power Wiring', 'Cable Laying', 'Cable Tray Works',
     'Yard Lighting', 'AMC Services'
   ];
-  var breakerGrid = document.getElementById('breakerGrid');
-  proficiencyAreas.forEach(function (name, i) {
-    var div = document.createElement('div');
-    div.className = 'breaker';
-    div.innerHTML = '<span class="switch" style="--d:' + (i % 6) + '"></span><span class="name">' + name + '</span>';
-    breakerGrid.appendChild(div);
+  var profList = document.getElementById('profList');
+  proficiencyAreas.forEach(function (name) {
+    var li = document.createElement('li');
+    li.textContent = name;
+    profList.appendChild(li);
   });
 
-  /* ---------- Featured projects data ---------- */
+  /* ---------- Featured projects ---------- */
   var CAT_IMAGES = {
     Commercial: 'https://images.unsplash.com/photo-1509390144018-eeaf65052242?fm=jpg&q=70&w=700&auto=format&fit=crop',
     Industrial: 'https://images.unsplash.com/photo-1707387066870-d270231f819f?fm=jpg&q=70&w=700&auto=format&fit=crop',
@@ -120,51 +115,73 @@ document.addEventListener('DOMContentLoaded', function () {
 
   var CATEGORIES = ['Commercial', 'Industrial', 'Educational', 'Healthcare', 'Hospitality', 'Auditorium'];
 
-  var filterRow = document.getElementById('filterRow');
+  var catGrid = document.getElementById('catGrid');
+  var projPanel = document.getElementById('projPanel');
+  var projPanelTitle = document.getElementById('projPanelTitle');
   var projectGrid = document.getElementById('projectGrid');
+  var projClose = document.getElementById('projClose');
+  var activeCat = null;
 
-  CATEGORIES.forEach(function (cat, i) {
-    var btn = document.createElement('button');
-    btn.className = 'filter-btn' + (i === 0 ? ' active' : '');
-    btn.setAttribute('data-cat', cat);
-    btn.innerHTML = '<span class="led"></span>' + cat;
-    btn.addEventListener('click', function () { setActiveCategory(cat); });
-    filterRow.appendChild(btn);
-  });
-
-  PROJECTS.forEach(function (p) {
-    var card = document.createElement('div');
-    card.className = 'project-card';
-    card.setAttribute('data-cat', p.cat);
-    card.innerHTML =
-      '<div class="project-photo"><img src="' + CAT_IMAGES[p.cat] + '" alt="' + p.name + ' — ' + p.cat + ' electrical project" loading="lazy"></div>' +
-      '<div class="project-body">' +
-        '<span class="project-cat">' + p.cat + '</span>' +
-        '<h4>' + p.name + '</h4>' +
-        '<p>' + p.place + ' — ' + p.desc + '</p>' +
-      '</div>';
-    projectGrid.appendChild(card);
-  });
-
-  var emptyState = document.createElement('div');
-  emptyState.className = 'empty-state';
-  emptyState.textContent = 'No projects filed under this category yet.';
-  projectGrid.appendChild(emptyState);
-
-  function setActiveCategory(cat) {
-    filterRow.querySelectorAll('.filter-btn').forEach(function (b) {
-      b.classList.toggle('active', b.getAttribute('data-cat') === cat);
-    });
-    var visibleCount = 0;
-    projectGrid.querySelectorAll('.project-card').forEach(function (card) {
-      var match = card.getAttribute('data-cat') === cat;
-      card.classList.toggle('hide', !match);
-      if (match) visibleCount++;
-    });
-    emptyState.classList.toggle('show', visibleCount === 0);
+  function esc(s) {
+    return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
   }
 
-  setActiveCategory(CATEGORIES[0]);
+  // Six category boxes, each with its project count
+  CATEGORIES.forEach(function (cat) {
+    var count = PROJECTS.filter(function (p) { return p.cat === cat; }).length;
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'cat-box';
+    btn.setAttribute('data-cat', cat);
+    btn.setAttribute('aria-expanded', 'false');
+    btn.innerHTML =
+      '<span class="cat-count">' + count + '</span>' +
+      '<span class="cat-name">' + cat + '</span>' +
+      '<span class="cat-sub">' + (count === 1 ? 'Project' : 'Projects') + ' · tap to view</span>';
+    btn.addEventListener('click', function () {
+      // click the open box again to hide it
+      if (activeCat === cat) closePanel(); else openCategory(cat);
+    });
+    catGrid.appendChild(btn);
+  });
+
+  function openCategory(cat) {
+    activeCat = cat;
+    catGrid.querySelectorAll('.cat-box').forEach(function (b) {
+      var on = b.getAttribute('data-cat') === cat;
+      b.classList.toggle('active', on);
+      b.setAttribute('aria-expanded', on ? 'true' : 'false');
+    });
+    var list = PROJECTS.filter(function (p) { return p.cat === cat; });
+    projPanelTitle.textContent = cat + ' projects (' + list.length + ')';
+    projectGrid.innerHTML = list.map(function (p) {
+      return '<div class="project-card">' +
+        '<div class="project-photo"><img src="' + CAT_IMAGES[p.cat] + '" alt="' + esc(p.name) + ' — ' + p.cat + ' electrical project" loading="lazy" onerror="this.style.display=\'none\'"></div>' +
+        '<div class="project-body">' +
+          '<span class="project-cat">' + p.cat + '</span>' +
+          '<h4>' + esc(p.name) + '</h4>' +
+          '<p>' + esc(p.place) + ' — ' + esc(p.desc) + '</p>' +
+        '</div></div>';
+    }).join('');
+    projPanel.hidden = false;
+    projPanel.style.animation = 'none';
+    void projPanel.offsetWidth;
+    projPanel.style.animation = '';
+    setTimeout(function () {
+      projPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }, 60);
+  }
+
+  function closePanel() {
+    activeCat = null;
+    projPanel.hidden = true;
+    projectGrid.innerHTML = '';
+    catGrid.querySelectorAll('.cat-box').forEach(function (b) {
+      b.classList.remove('active');
+      b.setAttribute('aria-expanded', 'false');
+    });
+  }
+  projClose.addEventListener('click', closePanel);
 
   /* ---------- Clients accordion ---------- */
   var CLIENTS = [
@@ -180,9 +197,9 @@ document.addEventListener('DOMContentLoaded', function () {
   CLIENTS.forEach(function (group) {
     var item = document.createElement('div');
     item.className = 'acc-item';
-    var listHtml = group.list.map(function (c) { return '<li>' + c + '</li>'; }).join('');
+    var listHtml = group.list.map(function (c) { return '<li>' + esc(c) + '</li>'; }).join('');
     item.innerHTML =
-      '<button class="acc-head"><span>' + group.cat + '<span class="count">(' + group.list.length + ')</span></span><span class="plus"></span></button>' +
+      '<button class="acc-head" type="button"><span>' + esc(group.cat) + '<span class="count">(' + group.list.length + ')</span></span><span class="plus"></span></button>' +
       '<div class="acc-panel"><ul class="acc-panel-inner">' + listHtml + '</ul></div>';
     accordion.appendChild(item);
 
