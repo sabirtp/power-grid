@@ -1,0 +1,803 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Power Grid Electrical Engineering and Contractors, Manjeri</title>
+<meta name="description" content="Power Grid Electrical Engineering and Contractors, Manjeri, Malappuram. HT and LT electrical contracting, substation construction, DG set commissioning and electrical consulting across Kerala since 1999.">
+<link rel="icon" type="image/png" href="images/icon.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap">
+<style>
+  /* Layout: one long marketing page. Navy bands and a sky-blue ground, signal red for emphasis, a yellow skewed tag as the section marker. Poppins for display, Inter for text.
+     The look is a deliberate single theme (the client's brand), so there is no dark variant. Every colour is set explicitly. */
+  :root {
+    --navy: #14264a;
+    --navy2: #1e3a74;
+    --navy3: #0f1d3b;
+    --red: #e0202e;
+    --yel: #ffd21f;
+    --sky: #eaf3fb;
+    --bg: #ffffff;
+    --ink: #14264a;
+    --mut: #56637d;
+    --card: #ffffff;
+    --line: #d5e2f1;
+    --on-navy: #d3def2;
+    --field: #eaf3fb;
+    --f-display: "Poppins", "Inter", system-ui, sans-serif;
+    --f-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+  body {
+    margin: 0;
+    font-family: var(--f-body);
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+  }
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0 0 auto;
+    height: env(safe-area-inset-top, 0px);
+    z-index: 40;
+    background: var(--navy3);
+  }
+  [hidden] { display: none !important; }
+  h1, h2, h3 { font-family: var(--f-display); }
+  a { color: inherit; }
+  img { max-width: 100%; }
+  ul { list-style: none; padding: 0; margin: 0; }
+  :focus-visible { outline: 3px solid var(--red); outline-offset: 3px; }
+  .top :focus-visible, header :focus-visible, .hero :focus-visible, .stats :focus-visible, .ct :focus-visible, footer :focus-visible { outline-color: var(--yel); }
+
+  .w {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+
+  /* Top bar */
+  .top { background: var(--navy3); color: #dbe5f6; font-size: 13px; padding: 8px 0; }
+  .top .w { display: flex; justify-content: space-between; align-items: center; gap: 6px 10px; flex-wrap: wrap; }
+  .top a { text-decoration: none; margin-right: 14px; display: inline-block; }
+  .soc a { display: inline-grid; place-items: center; width: 26px; height: 26px; border: 1px solid #ffffff55; border-radius: 50%; margin: 0 0 0 6px; font-size: 11px; }
+
+  /* Header */
+  header { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 30; height: 84px; margin-bottom: -84px; transition: background .25s, box-shadow .25s; }
+  header.s { background: var(--navy); box-shadow: 0 4px 16px #0006; }
+  header .w { display: flex; align-items: center; justify-content: space-between; height: 84px; gap: 14px; }
+  .brand { display: inline-block; line-height: 0; }
+  .brand img { height: 52px; width: auto; display: block; }
+  nav { display: flex; align-items: center; gap: 26px; font-weight: 600; font-size: 15px; color: #fff; }
+  nav a { text-decoration: none; }
+  nav a:hover { color: var(--yel); }
+  .btn {
+    display: inline-block; padding: 13px 30px; border-radius: 99px; font-weight: 700; font-family: var(--f-display); font-size: 15px;
+    text-decoration: none; background: var(--red); color: #fff; box-shadow: 0 8px 20px #e0202e55; border: 2px solid var(--red); cursor: pointer; text-align: center;
+  }
+  .btn.o { background: transparent; border-color: #fff; box-shadow: none; }
+  nav .btn { padding: 9px 20px; }
+  nav a.btn:hover { color: #fff; }
+
+  /* Hero */
+  .hero {
+    position: relative; color: #fff; overflow: hidden;
+    background:
+      radial-gradient(ellipse 55% 75% at 82% 42%, #2d62e04d, transparent 70%),
+      linear-gradient(100deg, #0f1d3bf7 18%, #14264ac4 58%, #14264a85),
+      url(images/hero.jpg) center 72%/cover var(--navy);
+    padding: 150px 0 210px;
+  }
+  /* faint drawing-sheet grid, fading out to the right */
+  .hero::before {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background-image: linear-gradient(#ffffff10 1px, transparent 1px), linear-gradient(90deg, #ffffff10 1px, transparent 1px);
+    background-size: 56px 56px;
+    -webkit-mask-image: linear-gradient(90deg, #000 0%, transparent 72%);
+    mask-image: linear-gradient(90deg, #000 0%, transparent 72%);
+  }
+  .tag {
+    display: inline-block; background: var(--yel); color: var(--navy); font: 800 12.5px var(--f-display); letter-spacing: .09em; text-transform: uppercase;
+    padding: 8px 22px; transform: skewX(-14deg); box-shadow: 4px 4px 0 var(--red);
+  }
+  .tag b { display: inline-block; transform: skewX(14deg); font-weight: 800; }
+  .hero .tag { font-size: 12px; padding: 7px 20px; }
+  .hero h1 { font-size: clamp(36px, 4.1vw, 64px); line-height: 1.12; margin: 22px 0 0; font-weight: 800; text-shadow: 0 4px 24px #0b1530aa; }
+  .brush {
+    display: inline-block; background: var(--red); padding: 0 28px 8px 24px; margin: 8px 0 0 -12px; font-style: italic;
+    clip-path: polygon(0 18%, 3% 0, 30% 6%, 60% 0, 100% 8%, 97% 40%, 100% 70%, 96% 100%, 60% 94%, 28% 100%, 4% 92%, 1% 60%);
+  }
+  .hero p { max-width: 560px; font-size: 18px; margin: 24px 0 16px; color: #e6edf9; }
+  .chk { display: flex; align-items: center; gap: 12px; font-weight: 600; margin: 10px 0; }
+  .hero .chk { font-size: 16px; }
+  .chk::before, li.c::before {
+    content: "\2713"; flex: none; width: 26px; height: 26px; border-radius: 50%; background: var(--red); color: #fff; display: grid; place-items: center; font-size: 13px;
+  }
+  .hero .btn { margin: 22px 10px 0 0; padding: 12px 28px; font-size: 15px; }
+  .hg { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); gap: 48px; align-items: center; }
+  .hero-copy { min-width: 0; }
+  .hero-copy > * { animation: rise .7s cubic-bezier(.2, .7, .2, 1) both; }
+  .hero-copy > :nth-child(2) { animation-delay: .08s; }
+  .hero-copy > :nth-child(3) { animation-delay: .16s; }
+  .hero-copy > :nth-child(4), .hero-copy > :nth-child(5) { animation-delay: .24s; }
+  .hero-copy > :nth-child(6) { animation-delay: .32s; }
+  @keyframes rise { from { translate: 0 16px; } to { translate: 0 0; } }
+  @keyframes float { 0%, 100% { translate: 0 0; } 50% { translate: 0 -10px; } }
+  .hero-card {
+    justify-self: end; width: 100%; max-width: 330px; padding: 30px 28px 14px; border-radius: 22px; border: 1px solid #ffffff30; border-top: 5px solid var(--yel);
+    background: #0f1d3b99; -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); box-shadow: 0 28px 60px #00000066;
+    animation: float 7s ease-in-out infinite;
+  }
+  .hero-card .mark { display: grid; place-items: center; padding: 6px 0 22px; }
+  .hero-card .mark img { width: 112px; height: 112px; filter: drop-shadow(0 0 22px #e0202e99); }
+  .hero-card ul { display: grid; }
+  .hero-card li { padding: 14px 0; border-top: 1px solid #ffffff24; display: flex; flex-direction: column; }
+  .hero-card b { font: 800 22px/1.2 var(--f-display); color: var(--yel); }
+  .hero-card span { font-size: 13px; color: #c9d6ee; }
+  /* Electrical motion: current pulses on the grid (canvas), flickering bolt, sheen on the brush text, ring and glow on the mark, faint lightning flash */
+  #spark { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+  .zap { display: inline-block; animation: flicker 3.4s steps(1, end) infinite; }
+  @keyframes flicker { 0%, 100% { opacity: 1; } 8% { opacity: .3; } 10% { opacity: 1; } 12% { opacity: .5; } 14% { opacity: 1; } 62% { opacity: .35; } 64% { opacity: 1; } }
+  .brush { position: relative; overflow: hidden; }
+  .brush::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(100deg, transparent 35%, #ffffff5c 50%, transparent 65%); translate: -130% 0; animation: sweep 5.5s ease-in-out 1.4s infinite; }
+  @keyframes sweep { 0% { translate: -130% 0; } 30%, 100% { translate: 130% 0; } }
+  .hero::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse 45% 60% at 78% 30%, #bcd4ff, transparent 70%); opacity: 0; animation: flash 11s linear 3s infinite; }
+  @keyframes flash { 0%, 90%, 100% { opacity: 0; } 91% { opacity: .16; } 92% { opacity: .03; } 93% { opacity: .2; } 96% { opacity: 0; } }
+  .hero-card .mark { position: relative; }
+  /* The mark's one animation: a highlight circles it, lighting each arrow in turn. The mask is the logo itself, so the highlight only shows on the red shapes. */
+  .hero-card .mark .flow {
+    --logo-mask: url("data:image/png;base64,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");
+    position: absolute; left: 50%; top: 62px; width: 112px; height: 112px; margin: -56px 0 0 -56px; pointer-events: none; overflow: hidden;
+    -webkit-mask: var(--logo-mask) center / contain no-repeat; mask: var(--logo-mask) center / contain no-repeat;
+  }
+  .hero-card .mark .flow::before {
+    content: ""; position: absolute; inset: -60%;
+    background: conic-gradient(from 0deg, transparent 0 60%, #ffffff66 76%, #ffffffe6 86%, transparent 88%, transparent 100%);
+    animation: orbit 3.6s linear infinite;
+  }
+  @keyframes orbit { to { rotate: 360deg; } }
+  .sw { position: absolute; left: 0; bottom: -1px; width: 100%; height: 110px; display: block; }
+  .bar { height: 6px; background: linear-gradient(90deg, var(--red) 33%, var(--yel) 33% 66%, var(--red) 66%); }
+
+  /* Stats */
+  .stats { background: var(--navy); color: #fff; padding: 44px 0; }
+  .stats .w { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
+  .stats big { display: block; font: 800 52px/1 var(--f-display); color: var(--yel); }
+  .stats span { font-size: 14px; color: #c9d6ee; letter-spacing: .06em; text-transform: uppercase; }
+
+  /* Sections */
+  section { padding: 90px 0; }
+  .sk { background: var(--sky); }
+  .cn { text-align: center; }
+  .cn .sub { margin-left: auto; margin-right: auto; }
+  h2 { font-size: clamp(28px, 4.4vw, 44px); line-height: 1.15; margin: 20px 0 26px; font-weight: 800; position: relative; text-wrap: balance; }
+  h2::after { content: ""; display: block; width: 84px; height: 5px; background: var(--red); border-radius: 3px; margin-top: 14px; transform: skewX(-20deg) rotate(-1.5deg); }
+  .cn h2::after { margin-left: auto; margin-right: auto; }
+  .sub { color: var(--mut); max-width: 640px; margin-top: -8px; font-size: 17px; }
+  .cn h2 + .sub { margin-top: 0; margin-bottom: 0; }
+
+  /* About */
+  .about { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+  .about > div { min-width: 0; }
+  .pics { position: relative; padding-bottom: 50px; }
+  .pics .a { width: 90%; border-radius: 12px; border: 6px solid #fff; box-shadow: 0 12px 36px #14264a30; display: block; height: auto; }
+  .pics .b { position: absolute; right: 0; bottom: 0; width: 52%; height: auto; border-radius: 12px; border: 6px solid #fff; box-shadow: 0 12px 36px #14264a40; }
+  .q { background: var(--card); border-left: 5px solid var(--red); border-radius: 8px 14px 14px 8px; padding: 24px 28px; box-shadow: 0 8px 28px #14264a14; color: var(--mut); margin-bottom: 22px; }
+  .q b { color: var(--ink); }
+  .g3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .vc { background: var(--card); border-top: 4px solid var(--yel); border-radius: 12px; padding: 20px; box-shadow: 0 8px 24px #14264a14; min-width: 0; }
+  .vc h4 { margin: 6px 0; font: 700 17px var(--f-display); }
+  .vc p { margin: 0; font-size: 14px; color: var(--mut); }
+  .pills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+  .pills span { background: var(--navy); color: #fff; padding: 9px 16px; border-radius: 99px; font-weight: 600; font-size: 14px; }
+  .pills span::before { content: "\2713\00a0"; color: var(--yel); }
+
+  /* Services */
+  .g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 44px; text-align: left; }
+  .sv { background: var(--card); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; box-shadow: 0 14px 36px #14264a18; min-width: 0; }
+  .sv .im { position: relative; height: 290px; background-size: cover; background-position: center; }
+  .sv .im .tag { position: absolute; left: 14px; bottom: 14px; font-style: italic; padding: 6px 16px; font-size: 11.5px; }
+  .sv .bd { padding: 26px; }
+  .sv h3 { margin: 0 0 8px; font-size: 24px; font-weight: 700; }
+  .sv p { color: var(--mut); margin: 0 0 16px; }
+  li.c { display: flex; gap: 12px; align-items: center; margin: 9px 0; font-weight: 500; }
+
+  /* Proficient areas */
+  .prof {
+    background: var(--card); border-radius: 16px; border-top: 5px solid var(--red); padding: 34px 40px; box-shadow: 0 12px 32px #14264a1c; margin-top: 44px; text-align: left;
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 12px 30px;
+  }
+  .prof li { padding-left: 20px; position: relative; font-weight: 600; }
+  .prof li::before { content: ""; position: absolute; left: 0; top: .6em; width: 9px; height: 9px; border-radius: 50%; background: var(--red); }
+
+  /* Process */
+  .g4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; margin-top: 44px; text-align: left; }
+  .st { background: var(--sky); border-bottom: 5px solid var(--red); border-radius: 16px; padding: 26px; box-shadow: 0 8px 24px #14264a14; min-width: 0; }
+  .st big { font: 800 44px/1 var(--f-display); color: var(--red); }
+  .st h3 { margin: 12px 0 8px; font-size: 19px; }
+  .st p { margin: 0; font-size: 14.5px; color: var(--mut); }
+
+  /* Projects */
+  .boxes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 44px; }
+  .box {
+    all: unset; box-sizing: border-box; cursor: pointer; background: var(--card); border: 2px solid var(--line); border-bottom: 6px solid var(--red); border-radius: 16px;
+    padding: 34px 18px; text-align: center; font: 700 22px var(--f-display); transition: .2s; color: var(--ink);
+  }
+  .box small { display: block; color: var(--red); font: 600 14px var(--f-body); margin-top: 4px; }
+  .box:hover, .box[aria-expanded="true"] { background: var(--navy); color: #fff; border-color: var(--navy); transform: translateY(-4px); }
+  .box:hover small, .box[aria-expanded="true"] small { color: var(--yel); }
+  .box:focus-visible { outline: 3px solid var(--red); outline-offset: 3px; }
+  #pn { display: none; margin-top: 26px; text-align: left; }
+  #pn.on { display: block; }
+  #pn h3 { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin: 0 0 16px; font-size: 22px; }
+  #pn h3 button { background: var(--red); color: #fff; border: 0; border-radius: 99px; padding: 8px 20px; font-weight: 700; font-family: var(--f-body); cursor: pointer; }
+  .pg { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .pc { background: var(--card); border-radius: 14px; overflow: hidden; border: 1px solid var(--line); box-shadow: 0 8px 24px #14264a14; min-width: 0; }
+  .pc i { display: block; height: 70px; background: linear-gradient(120deg, var(--navy), var(--navy2)); font-style: normal; color: var(--yel); font-size: 28px; padding: 18px 20px; line-height: 1.2; }
+  .pc div { padding: 16px 20px; }
+  .pc small { color: var(--red); font: 800 11px var(--f-display); letter-spacing: .1em; }
+  .pc h4 { margin: 4px 0; font: 700 18px var(--f-display); }
+  .pc p { margin: 0; color: var(--mut); font-size: 14px; }
+
+  /* Why choose us */
+  .wy { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 44px; text-align: left; }
+  .wc { background: var(--sky); border-left: 5px solid var(--red); border-radius: 14px; padding: 24px; box-shadow: 0 8px 24px #14264a14; min-width: 0; }
+  .wc i { display: grid; place-items: center; width: 52px; height: 52px; border-radius: 14px; background: var(--yel); font-size: 24px; font-style: normal; margin-bottom: 12px; transform: rotate(-6deg); }
+  .wc h3 { margin: 0 0 6px; font-size: 18px; }
+  .wc p { margin: 0; color: var(--mut); font-size: 14.5px; }
+
+  /* Contact */
+  .ct { background: var(--navy); color: #fff; padding: 90px 0; }
+  .ct h2 { color: #fff; }
+  .ct .gx { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+  .ct .gx > div, .ct .gx > form { min-width: 0; }
+  .ct .lead { color: var(--on-navy); margin: -6px 0 0; }
+  .ci { display: flex; gap: 16px; margin: 22px 0; align-items: flex-start; }
+  .ci i { flex: none; width: 46px; height: 46px; border-radius: 12px; background: var(--red); display: grid; place-items: center; font-style: normal; }
+  .ci small { display: block; color: var(--yel); font: 800 12px var(--f-display); letter-spacing: .1em; }
+  .ci a { text-decoration: none; }
+  .ci div { min-width: 0; overflow-wrap: anywhere; }
+  form { background: #fff; color: var(--ink); border-top: 6px solid var(--yel); border-radius: 20px; padding: 30px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; box-shadow: 0 20px 50px #0006; }
+  form label { font: 700 13px var(--f-body); display: block; }
+  form .f { grid-column: 1 / -1; }
+  input, select, textarea { width: 100%; margin-top: 6px; padding: 13px 14px; border: 2px solid var(--line); background: var(--field); border-radius: 10px; font: 400 16px var(--f-body); color: var(--ink); }
+  textarea { height: 100px; resize: vertical; }
+  form :focus-visible { outline: 3px solid var(--red); }
+  form .btn { grid-column: 1 / -1; width: 100%; }
+  .done { grid-column: 1 / -1; background: var(--sky); border: 2px solid var(--line); border-left: 5px solid var(--red); border-radius: 12px; padding: 18px 20px; display: grid; gap: 12px; }
+  .done h3 { margin: 0; font-size: 18px; }
+  .done p { margin: 0; font-size: 14.5px; color: var(--mut); }
+  .done textarea { height: 150px; margin-top: 0; background: #fff; }
+  .done .row { display: flex; flex-wrap: wrap; gap: 10px; }
+  .done .btn { grid-column: auto; width: auto; padding: 10px 22px; font-size: 14px; box-shadow: none; }
+  .done .btn.alt { background: transparent; color: var(--navy); border-color: var(--navy); }
+
+  /* Footer */
+  footer { background: var(--navy2); color: var(--on-navy); border-top: 5px solid var(--red); padding: 56px 0 24px; }
+  .fg { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 40px; }
+  .fg > div { min-width: 0; }
+  footer h5 { color: var(--yel); font: 800 14px var(--f-display); letter-spacing: .1em; text-transform: uppercase; margin: 0 0 16px; }
+  footer a { display: block; text-decoration: none; margin: 9px 0; font-size: 15px; }
+  footer a:hover { color: var(--yel); }
+  footer p { font-size: 14.5px; }
+  footer .brand { margin: 0; display: inline-block; }
+  .cp { border-top: 1px solid #ffffff30; margin-top: 34px; padding-top: 20px; font-size: 13px; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+  .up { width: 40px; height: 40px; border-radius: 50%; background: var(--red); color: #fff; display: grid; place-items: center; margin: 0 !important; flex: none; }
+
+  /* More motion: hero spotlight and tilt, scroll reveals, hover lifts, button sheen */
+  .spot { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(420px circle at var(--mx, 72%) var(--my, 36%), #5d8dff38, transparent 70%); }
+  .hero-card { transition: transform .25s ease-out; }
+  .rv.rv { opacity: .25; translate: 0 34px; transition: opacity .9s ease, translate .9s cubic-bezier(.2, .7, .2, 1); }
+  .rv.rv.in { opacity: 1; translate: 0 0; }
+  h2.rv::after { scale: 0 1; transition: scale .8s cubic-bezier(.2, .7, .2, 1) .35s; }
+  h2.rv.in::after { scale: 1 1; }
+  .sv, .vc, .st, .wc, .pc { transition: transform .35s cubic-bezier(.2, .7, .2, 1), box-shadow .35s; }
+  .sv:hover, .vc:hover, .st:hover, .wc:hover, .pc:hover { transform: translateY(-6px); box-shadow: 0 20px 46px #14264a30; }
+  .sv .im { overflow: hidden; }
+  .sv .ph { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform .9s cubic-bezier(.2, .7, .2, 1); }
+  .sv:hover .ph { transform: scale(1.08); }
+  .btn { position: relative; overflow: hidden; transition: transform .25s, box-shadow .25s; }
+  .btn::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(105deg, transparent 35%, #ffffff59 50%, transparent 65%); translate: -120% 0; transition: translate .7s; }
+  .btn:hover { transform: translateY(-2px); }
+  .btn:hover::after { translate: 120% 0; }
+  .pics .b { animation: float 7s ease-in-out infinite; }
+
+  /* Projects: seven categories laid out four over three so every row is full */
+  .boxes { grid-template-columns: repeat(12, 1fr); }
+  .box { grid-column: span 3; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+  .box:nth-child(n+5) { grid-column: span 4; }
+  .pc .og { margin-left: 8px; padding: 2px 9px; border-radius: 99px; background: var(--yel); color: var(--navy); letter-spacing: .04em; font-size: 10.5px; }
+  .pc p.dt { margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--line); font-size: 13.5px; line-height: 1.5; }
+
+  /* The mark's own space. The five layers are the four arrow brackets and the P/G with its bolt. The arrows push in turn
+     (left down, bottom right, right up, top left), then the centre flashes. Ripples and a glow sit behind. */
+  .mk { padding: 80px 0; }
+  .stage {
+    position: relative; overflow: hidden; border-radius: 28px; color: #fff; box-shadow: 0 24px 60px #14264a40;
+    display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(24px, 5vw, 64px); align-items: center; padding: clamp(32px, 5vw, 64px) clamp(20px, 5vw, 72px);
+    background: radial-gradient(ellipse 50% 80% at 26% 50%, #2d62e04d, transparent 70%), linear-gradient(120deg, var(--navy3), var(--navy2));
+  }
+  .stage::before {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background-image: linear-gradient(#ffffff10 1px, transparent 1px), linear-gradient(90deg, #ffffff10 1px, transparent 1px); background-size: 56px 56px;
+    -webkit-mask-image: radial-gradient(ellipse 60% 90% at 26% 50%, #000, transparent 78%); mask-image: radial-gradient(ellipse 60% 90% at 26% 50%, #000, transparent 78%);
+  }
+  .stage > * { position: relative; }
+  .mk-copy { min-width: 0; }
+  .mk-copy h2 { color: #fff; margin-top: 18px; }
+  .mk-copy p { color: var(--on-navy); font-size: 18px; max-width: 46ch; margin: 0; }
+  .sym { width: min(100%, 300px); aspect-ratio: 444 / 640; margin: 0 auto; }
+  .sym > * { position: absolute; }
+  .sym img { inset: 0; width: 100%; height: 100%; filter: brightness(1) drop-shadow(0 0 10px #e0202e55); }
+  .sym .glow { inset: -12% -30%; background: radial-gradient(closest-side, #ff56624d, #2d62e033 55%, transparent 75%); animation: breathe 4s ease-in-out infinite; }
+  @keyframes breathe { 0%, 100% { opacity: .55; scale: .94; } 50% { opacity: 1; scale: 1.06; } }
+  .sym .ring { left: 50%; top: 50%; width: 150%; aspect-ratio: 1; border-radius: 50%; border: 2px solid #8fb4ff; translate: -50% -50%; opacity: 0; scale: .45; animation: ripple 4s ease-out infinite; }
+  .sym .ring.r2 { animation-delay: 2s; }
+  @keyframes ripple { 0% { opacity: .5; scale: .45; } 100% { opacity: 0; scale: 1.25; } }
+  .sym .p { animation: chase 4s ease-in-out infinite; animation-delay: calc(var(--i) * .9s); }
+  @keyframes chase {
+    0%, 30%, 100% { translate: 0 0; filter: brightness(1) drop-shadow(0 0 10px #e0202e55); }
+    12% { translate: calc(var(--dx) * 1px) calc(var(--dy) * 1px); filter: brightness(1.45) drop-shadow(0 0 16px #ffd21f); }
+  }
+  .sym .core { animation: core 4s ease-in-out infinite; }
+  @keyframes core {
+    0%, 78%, 100% { scale: 1; filter: brightness(1) drop-shadow(0 0 10px #e0202e55); }
+    90% { scale: 1.035; filter: brightness(1.4) drop-shadow(0 0 18px #8fb4ff); }
+  }
+
+  @media (max-width: 900px) {
+    nav a:not(.btn) { display: none; }
+    .about, .g2, .ct .gx, .fg { grid-template-columns: 1fr; }
+    .g4, .stats .w { grid-template-columns: 1fr 1fr; }
+    .boxes, .pg, .wy, .g3 { grid-template-columns: 1fr; }
+    .box, .box:nth-child(n+5) { grid-column: auto; }
+        .hero { padding: 130px 0 130px; }
+    .stage { grid-template-columns: 1fr; gap: 28px; }
+    .sym { width: min(100%, 230px); }
+    .hg { grid-template-columns: 1fr; gap: 34px; }
+    .hero-card { justify-self: stretch; max-width: none; padding: 16px 18px 6px; animation: none; }
+    .hero-card .mark { display: none; }
+    .hero-card ul { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .hero-card li { border-top: 0; border-left: 1px solid #ffffff30; padding: 4px 0 10px 12px; }
+    .hero-card li:first-child { border-left: 0; padding-left: 0; }
+    .hero-card b { font-size: 17px; }
+    .top .soc { display: none; }
+    form { grid-template-columns: 1fr; }
+    .about { gap: 40px; }
+    .prof { padding: 26px 24px; }
+  }
+  @media (max-width: 520px) {
+    section { padding: 64px 0; }
+    .stats big { font-size: 40px; }
+    .sv .im { height: 220px; }
+    .brand img { height: 44px; }
+    .pics { padding-bottom: 36px; }
+    form { padding: 22px 18px; }
+    .cp { flex-wrap: wrap; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { transition: none !important; animation: none !important; }
+    .flow { display: none; }
+  }
+</style>
+
+</head>
+<body>
+<div class="top"><div class="w">
+  <div>
+    <a href="mailto:saheerriju@gmail.com">&#9993; saheerriju@gmail.com</a>
+    <a href="tel:+917356689856">&#128222; +91 7356689856</a>
+    <a href="tel:+918086029214">&#128222; +91 8086029214</a>
+  </div>
+  <div class="soc"><a href="#home" aria-label="Facebook">f</a><a href="#home" aria-label="Instagram">&#9678;</a><a href="#home" aria-label="LinkedIn">in</a></div>
+</div></div>
+
+<header id="hd"><div class="w">
+  <a class="brand" href="#home"><img src="images/logo-light.png" width="188" height="52" alt="Power Grid Electrical Engineering and Contractors"></a>
+  <nav aria-label="Sections">
+    <a href="#about">About</a><a href="#services">Services</a><a href="#expertise">Expertise</a><a href="#projects">Projects</a><a href="#contact">Contact</a>
+    <a class="btn" href="#contact">Get Quote</a>
+  </nav>
+</div></header>
+
+<div class="hero" id="home"><canvas id="spark" aria-hidden="true"></canvas><div class="spot" aria-hidden="true"></div><div class="w hg">
+  <div class="hero-copy">
+    <span class="tag"><b><span class="zap">&#9889;</span> Trusted Electrical Engineering Company</b></span>
+    <h1>Powering Kerala's buildings <span class="brush">with precision.</span></h1>
+    <p>Professional HT/LT electrical contracting, substation construction, DG set commissioning and full-cycle consulting &mdash; for hospitals, industries, colleges and commercial establishments across Kerala and pan India.</p>
+    <div class="chk">25+ years of experience</div>
+    <div class="chk">Safe &amp; professional setup</div>
+    <div><a class="btn" href="#services">Our Services</a><a class="btn o" href="#contact">Contact Us</a></div>
+  </div>
+  <aside class="hero-card" aria-label="Power Grid at a glance">
+    <div class="mark"><img src="images/icon.png" width="112" height="112" alt=""><span class="flow" aria-hidden="true"></span></div>
+    <ul>
+      <li><b>Since 1999</b><span>Established</span></li>
+      <li><b>HT &amp; LT</b><span>Contracting and consulting</span></li>
+      <li><b>Manjeri</b><span>Malappuram, Kerala</span></li>
+    </ul>
+  </aside>
+</div>
+<svg class="sw" viewBox="0 0 1200 110" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40C250 0 650 20 1200 85V110H0Z" fill="#e0202e"/><path d="M0 62C300 30 700 55 1200 98V110H0Z" fill="#eaf3fb"/></svg></div>
+<div class="bar"></div>
+<div class="stats"><div class="w" id="stats"></div></div>
+
+<section class="mk" id="mark" aria-label="The Power Grid mark"><div class="w">
+  <div class="stage">
+    <div class="sym" role="img" aria-label="The Power Grid mark: four arrows circling the letters P and G with a lightning bolt at the centre">
+      <span class="glow"></span><span class="ring"></span><span class="ring r2"></span>
+      <img class="p" style="--dx:0;--dy:7;--i:0" src="images/sym-a.png" width="444" height="640" alt="">
+      <img class="p" style="--dx:7;--dy:0;--i:1" src="images/sym-c.png" width="444" height="640" alt="">
+      <img class="p" style="--dx:0;--dy:-7;--i:2" src="images/sym-d.png" width="444" height="640" alt="">
+      <img class="p" style="--dx:-7;--dy:0;--i:3" src="images/sym-b.png" width="444" height="640" alt="">
+      <img class="core" src="images/sym-core.png" width="444" height="640" alt="">
+    </div>
+    <div class="mk-copy">
+      <span class="tag"><b>Our Mark</b></span>
+      <h2>Power that keeps moving</h2>
+      <p>Four arrows circle the letters P and G, with a bolt at the centre. The mark stands for the work we do: carry power safely from the source to the load, and keep it flowing.</p>
+    </div>
+  </div>
+</div></section>
+
+<section class="sk" id="about"><div class="w about">
+  <div class="pics"><img class="a" src="images/about-1.jpg" width="482" height="359" alt="Electrical substation with transmission structures"><img class="b" src="images/about-2.jpg" width="247" height="246" alt="Switchgear breakers inside a panel"></div>
+  <div>
+    <span class="tag"><b>About Us</b></span>
+    <h2>Leading electrical contractors in Kerala</h2>
+    <div class="q"><b>Power Grid</b> Electrical Engineering and Contractors was established in 1999 and has grown into a leading electrical contracting and consulting company with office in Manjeri, Malappuram. We execute projects with long-term client relationships in mind &mdash; earning a reputation for perfection, quality, promptness, reliability and safety.</div>
+    <div class="g3">
+      <div class="vc">&#128065;<h4>Vision</h4><p>Become Kerala's most trusted electrical engineering and contracting company.</p></div>
+      <div class="vc">&#129309;<h4>Promise</h4><p>Deliver quality electrical solutions with reliability, safety, and technical excellence.</p></div>
+      <div class="vc">&#127942;<h4>Quality</h4><p>Every project follows strict quality standards, safety compliance and industry best practices.</p></div>
+    </div>
+    <div class="pills"><span>Quality Workmanship</span><span>Safety First</span><span>Reliability</span><span>Timely Delivery</span><span>Pan India Operations</span></div>
+  </div>
+</div></section>
+
+<section id="services"><div class="w cn">
+  <span class="tag"><b>What We Do</b></span>
+  <h2>Our services</h2>
+  <p class="sub">From single-line diagram to final commissioning &mdash; contracting and consulting under one roof.</p>
+  <div class="g2">
+    <div class="sv"><div class="im"><div class="ph" style="background-image:url(images/service-1.jpg)"></div><span class="tag"><b>01 &middot; Contracting</b></span></div>
+      <div class="bd"><h3>Electrical Contracting</h3><p>Wide range of HT &amp; LT contracting services, from single-line diagram preparation through full commissioning.</p>
+        <ul><li class="c">Single Line Diagram Preparation</li><li class="c">Substation Construction</li><li class="c">DG Set Installation &amp; Commissioning</li><li class="c">HT &amp; LT Switchgear Installation</li><li class="c">Internal &amp; External Electrification</li></ul></div></div>
+    <div class="sv"><div class="im"><div class="ph" style="background-image:url(images/service-2.jpg)"></div><span class="tag"><b>02 &middot; Consulting</b></span></div>
+      <div class="bd"><h3>Electrical Consulting</h3><p>End-to-end consulting from project conceptualization through commissioning support, across the full project life cycle.</p>
+        <ul><li class="c">Project Conceptualization &amp; Design</li><li class="c">Electrical Estimation &amp; Engineering</li><li class="c">BOQ Preparation &amp; Quantity Scheduling</li><li class="c">Project Supervision</li><li class="c">Certification &amp; Commissioning Support</li></ul></div></div>
+  </div>
+</div></section>
+
+<section class="sk" id="expertise"><div class="w cn">
+  <span class="tag"><b>Technical Proficiency</b></span>
+  <h2>Proficient areas</h2>
+  <p class="sub">Our engineers work across the full spectrum of electrical systems &mdash; from substations and panels to cabling, earthing and AMC.</p>
+  <ul class="prof" id="prof"></ul>
+</div></section>
+
+<section><div class="w cn">
+  <span class="tag"><b>Our Process</b></span>
+  <h2>How we deliver excellence</h2>
+  <p class="sub">From first consultation to final handover &mdash; a clear process behind every project we execute.</p>
+  <div class="g4">
+    <div class="st"><big>01</big><h3>Consultation</h3><p>Understanding project requirements, site conditions and load estimation before any design work begins.</p></div>
+    <div class="st"><big>02</big><h3>Engineering &amp; Design</h3><p>Single line diagram preparation, BOQ and electrical estimation tailored to the project scope.</p></div>
+    <div class="st"><big>03</big><h3>Execution</h3><p>HT/LT contracting, substation construction and switchgear installation carried out by our field teams.</p></div>
+    <div class="st"><big>04</big><h3>Testing &amp; Handover</h3><p>Commissioning, certification support and final handover with complete documentation.</p></div>
+  </div>
+</div></section>
+
+<section class="sk" id="projects"><div class="w cn">
+  <span class="tag"><b>Our Work</b></span>
+  <h2>Featured projects</h2>
+  <p class="sub">All <span id="ptotal">85</span> projects, grouped by type. Click a category to open its list.</p>
+  <div class="boxes" id="boxes"></div>
+  <div id="pn" aria-live="polite"></div>
+</div></section>
+
+<section><div class="w cn">
+  <span class="tag"><b>Why Choose Us</b></span>
+  <h2>Engineering excellence you can trust</h2>
+  <p class="sub">We deliver reliable electrical engineering solutions with quality, safety and customer satisfaction at every stage.</p>
+  <div class="wy">
+    <div class="wc"><i>&#127942;</i><h3>25+ Years Experience</h3><p>Established in 1999 &mdash; over two decades of expertise in electrical contracting and consulting across Kerala.</p></div>
+    <div class="wc"><i>&#128119;</i><h3>Expert Engineering Team</h3><p>Certified electrical engineers and skilled technicians delivering precision on every project.</p></div>
+    <div class="wc"><i>&#9989;</i><h3>Quality Workmanship</h3><p>Meticulous attention to detail, matched to industry standards on every installation.</p></div>
+    <div class="wc"><i>&#128737;</i><h3>Safety Compliance</h3><p>All works executed in strict compliance with Kerala State Electricity Board norms.</p></div>
+    <div class="wc"><i>&#9200;</i><h3>Timely Delivery</h3><p>Known for prompt execution and on-time completion, minimizing disruption for clients.</p></div>
+    <div class="wc"><i>&#127760;</i><h3>Pan India Execution</h3><p>Active across Kerala and beyond, wherever our clients' needs take us.</p></div>
+  </div>
+</div></section>
+
+<div class="bar"></div>
+<section class="ct" id="contact"><div class="w gx">
+  <div>
+    <span class="tag"><b>Get In Touch</b></span>
+    <h2>Contact us</h2>
+    <p class="lead">Tell us about your project and we'll get back to you with a free quote.</p>
+    <div class="ci"><i>&#128205;</i><div><small>ADDRESS</small>Everest Building, Chanthakkunnu<br>Manjeri (PO), Malappuram District<br>Kerala &ndash; 676121</div></div>
+    <div class="ci"><i>&#128222;</i><div><small>PHONE</small><a href="tel:+917356689856">+91 7356689856</a><br><a href="tel:+918086029214">+91 8086029214</a></div></div>
+    <div class="ci"><i>&#9993;</i><div><small>EMAIL</small><a href="mailto:saheerriju@gmail.com">saheerriju@gmail.com</a></div></div>
+    <div class="ci"><i>&#127991;</i><div><small>GSTIN</small>32CJQPP0632Q1ZP</div></div>
+  </div>
+  <form id="fm">
+    <label for="f-n">Your Name<input id="f-n" name="n" required autocomplete="name"></label>
+    <label for="f-c">Company<input id="f-c" name="c" autocomplete="organization"></label>
+    <label for="f-e">Email<input id="f-e" type="email" name="e" autocomplete="email"></label>
+    <label for="f-p">Phone<input id="f-p" type="tel" name="p" autocomplete="tel"></label>
+    <label class="f" for="f-s">Service Required<select id="f-s" name="s"><option value="">Select a service</option><option>Electrical Contracting</option><option>Electrical Consulting</option><option>Substation Construction</option><option>DG Set Installation</option><option>AMC Services</option></select></label>
+    <label class="f" for="f-m">Message<textarea id="f-m" name="m"></textarea></label>
+    <button class="btn" type="submit">Send Inquiry &rarr;</button>
+    <div class="done" id="done" hidden>
+      <h3 id="done-h">Your inquiry is ready</h3>
+      <p id="done-p">This page cannot send email by itself. Copy the text below and email it to saheerriju@gmail.com, or call +91 7356689856.</p>
+      <textarea id="msg" readonly aria-label="Your inquiry text"></textarea>
+      <div class="row"><button class="btn" type="button" id="cp-btn">Copy inquiry</button><a class="btn alt" id="mail" href="mailto:saheerriju@gmail.com">Open in email app</a></div>
+    </div>
+  </form>
+</div></section>
+
+<footer><div class="w">
+  <div class="fg">
+    <div><a class="brand" href="#home"><img src="images/logo-light.png" width="188" height="52" alt="Power Grid Electrical Engineering and Contractors"></a>
+      <p style="margin-top:18px">Established in 1999, Power Grid is a leading electrical contracting and consulting company. Operating across Kerala and pan India with office in Manjeri, Malappuram.</p></div>
+    <div><h5>Services</h5><a href="#services">HT Contracting</a><a href="#services">LT Contracting</a><a href="#services">Substation Construction</a><a href="#services">Electrical Consulting</a><a href="#expertise">AMC Services</a></div>
+    <div><h5>Quick Links</h5><a href="#about">About Us</a><a href="#expertise">Proficient Areas</a><a href="#projects">Projects</a><a href="#contact">Contact Us</a></div>
+  </div>
+  <div class="cp"><span>&copy; 2026 Power Grid Electrical Engineering &amp; Contractors. All rights reserved. GSTIN: 32CJQPP0632Q1ZP</span><a class="up" href="#home" aria-label="Back to top">&uarr;</a></div>
+</div></footer>
+
+<script>
+(function () {
+  var $ = function (i) { return document.getElementById(i); };
+  var EMAIL = "saheerriju@gmail.com";
+
+  $("stats").innerHTML = [["25", "+", "Years experience"], ["100", "+", "Projects completed"], ["50", "+", "Corporate clients"], ["1999", "", "Founded"]]
+    .map(function (x) { return "<div><big data-n=\"" + x[0] + "\" data-s=\"" + x[1] + "\">" + x[0] + x[1] + "</big><span>" + x[2] + "</span></div>"; }).join("");
+
+  $("prof").innerHTML = ["Unitised Substations", "Transformers", "DG Sets", "PCC Panels", "MCC Panels", "APFC Panels", "AMF Panels", "AC Drive Panels", "Generator Control Panels", "LT Panels", "Synchronizing Panels", "Capacitor Panels", "Changeover Panels", "Bus Duct Systems", "Earthing Systems", "Lightning Protection", "Light Wiring", "Power Wiring", "Cable Laying", "Cable Tray Works", "Yard Lighting", "AMC Services"]
+    .map(function (x) { return "<li>" + x + "</li>"; }).join("");
+
+  /* name | place | details | ongoing flag. Taken from the "Projects at a glance" PDF. */
+  var D = [
+    ["Auditorium & Convention", [
+      "Safa Highlands|Nellikkuth, Manjeri", "Century Auditorium|Cherani, Manjeri", "Naz Auditorium|Karakkunnu, Manjeri", "Van's Auditorium|Pallippadi, Manjeri",
+      "VK Palace|Mullampara", "City Point Convention Hall|Manjeri", "Woodbine Conference Hall|Malappuram", "Eranadu Convention Center|Parathakkad, Edavannapara"]],
+    ["Hospitals & Clinical", [
+      "Malabar Hospital Pvt. Ltd|Manjeri|Installation of 630KVA indoor substation, 250KVA DG set, 125KVA DG set, 70KVA DG set, 40KVA CT scan, 70KVA Cath Lab and 300mA X-ray unit with complete internal and external electrification.",
+      "Relief Hospital Pvt. Ltd|Kondotty|Installation of 500KVA indoor substation, 125KVA DG set, 40KVA CT scan and 300mA X-ray unit with complete internal and external electrification.",
+      "Kerala Medical College|Cherpullassery (Nursing School)",
+      "Green Scan|Manjeri|Design and installation of 160KVA DG set, 80KVA MRI unit, 60KVA CT scan, 300mA X-ray unit and connected electrics.",
+      "Manu Memorial Hospital|Manjeri|Installation of 160KVA outdoor substation, 125KVA DG set, 300mA X-ray unit and connected electrics.",
+      "Sevana Hospital & Research Centre Pvt. Ltd|Pattambi|Installation of 400KVA DG set, 200KVA DG set and connected electrics.",
+      "ASCENT ENT Hospital|Perinthalmanna, opp. Manayil bus stand||1",
+      "Hima Care Home (Dialysis Centre)|Adakkakundu, Kalikavu", "Medicina Unani Hospital|Pattambi, Palakkad",
+      "Fathima Drug House (Kuruvila Son's Centre Point)||Installation of 160KVA indoor resin cast dry type transformer and 63KVA DG set.",
+      "Doctor's MRI Scan Centre|Manjeri", "Manu Scan Centre|Manjeri", "Open Scan Centre|Manjeri", "Ibnu Seena Medical Centre|Manjeri",
+      "Sevana Diagnostics|Kondotty", "Focuz Dental Care|Manjeri", "Manasneha Hospital|Manjeri", "Shihab Thangal Charitable Dialysis Centre|Kondotty"]],
+    ["Institutional", [
+      "AIMER Business School|Markaz Knowledge City, Kaithapoyil, Kozhikode|Design, installation and commissioning of 400KVA indoor substation, 250KVA DG set and connected electrics.",
+      "DUXFORD Edu Park|Karutheni, Kalikavu|Design, installation and commissioning of 400KVA indoor substation, 125KVA DG set and connected electrics.|1",
+      "MEA Engineering College|Vengoor, Perinthalmanna|Design, installation and commissioning of 250KVA indoor substation, 125KVA DG set and connected electrics.",
+      "EKC (Eranad Knowledge City)|Technical Campus, Manjeri|Design, installation and commissioning of 400KVA indoor substation, 125KVA DG set and connected electrics.",
+      "PEACE School|Cherukukulam, Manjeri|Electrification and commissioning.",
+      "Exter College|Cherukukulam, Manjeri", "Jamia Hikamiyya Arabic College|Vengara",
+      "AMMHS (Higher Secondary Block)|Pulikkal", "Skill Development Center, AMAL College", "Jamia Islamia Academic Block|Panakkandu", "Qaaf Islamic School|Poly"]],
+    ["Commercial", [
+      "Hajj House|Calicut Airport Road, Karippur|Design, installation and commissioning of 125KVA DG set and connected electrics.",
+      "Moyeen Kutty Vaidyar Smarakam|Kondotty",
+      "Co-operative Urban Bank|Nilambur|Design, installation and commissioning of 200KVA USS, 125KVA DG set and connected electrics.",
+      "Kasavukendra Wedding Centre|Manjeri, Calicut|Design, installation and commissioning of 630KVA USS, 380KVA DG set, 200KVA DG set and connected electrics.",
+      "Kasavukendra Wedding Centre|Calicut|Installation and connected electrics.",
+      "M Lounge ML Fashion|Kannur, Calicut, Kottakkal|Design, installation and commissioning of 250KVA USS, 200KVA DG set and connected electrics.",
+      "Sha Mall (Veemart Supermarket)|Pandikkad Road, Manjeri|Design, installation and commissioning of 400KVA USS, 250KVA DG set and connected electrics.",
+      "Classic Hyundai|Malappuram|Design, installation and commissioning of 200KVA USS, 125KVA DG set and connected electrics.",
+      "Grand Hyundai|Palakkad|Design, installation and commissioning of 200KVA USS, 125KVA DG set and connected electrics.",
+      "CP Suzuki|Calicut|Design, installation and commissioning of 63KVA DG set and connected electrics.",
+      "Classic Hyundai|Kottakkal|Design, installation and commissioning of 63KVA DG set and connected electrics.",
+      "Kollar Mill Store|Malappuram|Internal electrification of show room.",
+      "Family Wedding Centre|Manjeri|Design, installation and commissioning of 315KVA USS, 250KVA DG set and connected electrics.",
+      "Woodbine Restaurant|Nilambur, Malappuram, Manjeri", "Amana Tower|Kondotty", "Vellarayil Complex|Calicut", "Kurikkal Tiles|Calicut", "MEND|Tirur",
+      "KNM Building, Medical College|Calicut", "Aroosa Jewellery|Pottammal, Calicut", "Nizra Gold|Kondotty"]],
+    ["Apartments", [
+      "Sevana Projects & Properties|Pattambi|Installation of 200KVA indoor substation, 62.5KVA DG set and connected electrics at a G+8 apartment building.",
+      "Greens Residency|Manjeri", "DRH Properties|Manjeri|Installation of 100KVA transformer, 25KVA DG set and connected electrics.",
+      "Mobi Care, Ayisha Flat|Pullancheri, Manjeri", "Moulavi Apartment|Athikkulam, Manjeri", "Zubair Apartment|Manjeri", "Care Home Night Shelter|Kallayi, Calicut", "Jamia Apartment|Manjeri"]],
+    ["Industrial", [
+      "Impex Factory|Chamaraj Nagar, Karnataka",
+      "AMS Spices & Food Products|Manjeri|Design, installation and commissioning of 500KVA indoor substation, 380KVA DG set, 125KVA DG set and connected electrics.",
+      "Chola Pickles|Payyanad",
+      "Mubarak Granites|Edavanna|Design, installation and commissioning of 500KVA indoor OLTC substation, 250KVA DG set and connected electrics.",
+      "Krishnagiri Sands|Meenagadi, Wayanad|Design, installation and commissioning of 630KVA outdoor substation, 400KVA DG set and connected electrics.",
+      "Kanneth Industries|Vengara|Design, installation and commissioning of 400KVA outdoor substation, 320KVA DG set and connected electrics.",
+      "Euro Tech Polymers|Elankur, Manjeri|Design, installation and commissioning of 250KVA outdoor substation, 125KVA DG set and connected electrics.",
+      "Portland Granites|Pulikkal|Design, installation and commissioning of 700KVA indoor substation, 500KVA DG set and connected electrics.",
+      "Zainaba Granites|Nadapuram|Design, installation and commissioning of 380KVA DG set and connected electrics.",
+      "Rahmath Granites|Kavanoor|Design, installation and commissioning of 400KVA outdoor substation, 250KVA DG set and connected electrics.",
+      "Shamil Crusher|Iruvetty|Design, installation and commissioning of 160KVA DG set and connected electrics.",
+      "Alif Granites|Shapinkunhu, Manjeri|Design, installation and commissioning of 125KVA DG set and connected electrics.",
+      "Manjeri Blue Metals|Amayur",
+      "Manjeri City Infra Structure Crusher|Koyilandippadi|Design, installation and commissioning of 1250KVA transformer, 2 Nos 650KVA DG set and connected electrics.",
+      "Green Worms Eco Solutions|Calicut, Malappuram, Alappuzha, Kasaragod & Kannur"]],
+    ["Resorts", ["Mount Xanadu Resorts|Ambalavayal", "Rewabi Resort|Kalpatta", "Aven Villa|Kakkadampoyil", "Subhavan Resort|Korome, Wayanad"]]
+  ];
+
+  function esc(t) { return String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
+  var B = $("boxes"), P = $("pn"), cur = -1, total = 0;
+  D.forEach(function (c, i) {
+    total += c[1].length;
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "box"; b.setAttribute("aria-expanded", "false");
+    b.innerHTML = esc(c[0]) + "<small>" + c[1].length + " projects</small>";
+    b.onclick = function () { tog(i, b, true); };
+    B.appendChild(b);
+  });
+  $("ptotal").textContent = total;
+  function shut() {
+    P.className = ""; cur = -1;
+    [].forEach.call(B.children, function (x) { x.setAttribute("aria-expanded", "false"); });
+  }
+  function tog(i, b, scroll) {
+    if (cur === i) { shut(); return; }
+    shut(); cur = i; b.setAttribute("aria-expanded", "true"); P.className = "on";
+    var k = D[i][0];
+    P.innerHTML = "<h3>" + esc(k) + " projects <button type=\"button\" id=\"cl\">Close</button></h3><div class=\"pg\">" +
+      D[i][1].map(function (x) {
+        var a = x.split("|");
+        return "<div class=\"pc\"><i aria-hidden=\"true\">&#9889;</i><div><small>" + esc(k.toUpperCase()) + (a[3] ? "<span class=\"og\">Ongoing</span>" : "") + "</small><h4>" + esc(a[0]) + "</h4>" +
+          (a[1] ? "<p>" + esc(a[1]) + "</p>" : "") + (a[2] ? "<p class=\"dt\">" + esc(a[2]) + "</p>" : "") + "</div></div>";
+      }).join("") + "</div>";
+    $("cl").onclick = shut;
+    if (scroll) P.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
+  tog(0, B.children[0], false);
+
+  var reduce = !!(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches);
+
+  /* Count the stats up the first time they scroll into view. The final numbers are already in the markup. */
+  if (!reduce && "IntersectionObserver" in window) {
+    var so = new IntersectionObserver(function (es) {
+      if (!es.some(function (e) { return e.isIntersecting; })) return;
+      so.disconnect();
+      [].forEach.call($("stats").querySelectorAll("big"), function (el) {
+        var n = +el.getAttribute("data-n"), sfx = el.getAttribute("data-s") || "", from = n >= 1000 ? n - 80 : 0, t0 = performance.now();
+        (function tick(t) {
+          var k = Math.min(1, (t - t0) / 1400);
+          el.textContent = Math.round(from + (n - from) * (1 - Math.pow(1 - k, 3))) + sfx;
+          if (k < 1) requestAnimationFrame(tick);
+        })(t0);
+      });
+    }, { threshold: 0.6 });
+    so.observe($("stats"));
+  }
+
+  /* Current pulses travelling along the hero's circuit grid (grid lines are drawn by CSS every 56px) */
+  (function () {
+    var cv = $("spark"), hero = $("home");
+    if (!cv) return;
+    if (reduce || !cv.getContext) { cv.style.display = "none"; return; }
+    var ctx = cv.getContext("2d"), G = 56, W = 0, H = 0, run = false, last = 0, ps = [];
+    var COLS = ["255,210,31", "255,86,98", "140,180,255"], DIRS = [[1, 0], [0, 1], [-1, 0], [0, -1]];
+    function area() { return { x1: Math.floor(W * 0.8 / G), y1: Math.max(2, Math.floor((H - 130) / G)) }; }
+    function spawn() {
+      var a = area();
+      return { gx: Math.floor(Math.random() * a.x1), gy: 1 + Math.floor(Math.random() * (a.y1 - 1)), d: Math.floor(Math.random() * 4), t: Math.random() * G, sp: 70 + Math.random() * 90, c: COLS[Math.floor(Math.random() * 3)], tr: [], x: 0, y: 0 };
+    }
+    function inside(a, x, y) { return x >= 0 && x <= a.x1 && y >= 0 && y <= a.y1; }
+    function step(p, dt) {
+      p.t += p.sp * dt;
+      while (p.t >= G) {
+        p.t -= G; p.gx += DIRS[p.d][0]; p.gy += DIRS[p.d][1];
+        var a = area(), r = Math.random(), nd = p.d;
+        if (r > 0.55) nd = (p.d + (r > 0.78 ? 1 : 3)) % 4;
+        if (!inside(a, p.gx + DIRS[nd][0], p.gy + DIRS[nd][1])) {
+          var alt = [(p.d + 1) % 4, (p.d + 3) % 4, p.d], ok = false;
+          for (var k = 0; k < 3; k++) { if (inside(a, p.gx + DIRS[alt[k]][0], p.gy + DIRS[alt[k]][1])) { nd = alt[k]; ok = true; break; } }
+          if (!ok) { var s2 = spawn(); p.gx = s2.gx; p.gy = s2.gy; p.d = s2.d; p.t = 0; p.tr = []; break; }
+        }
+        p.d = nd;
+      }
+      p.x = p.gx * G + DIRS[p.d][0] * p.t; p.y = p.gy * G + DIRS[p.d][1] * p.t;
+      p.tr.push(p.x, p.y); if (p.tr.length > 84) p.tr.splice(0, 2);
+    }
+    function draw(ts) {
+      ctx.clearRect(0, 0, W, H); ctx.globalCompositeOperation = "lighter"; ctx.lineCap = "round"; ctx.lineJoin = "round";
+      ps.forEach(function (p) {
+        var n = p.tr.length / 2, f = Math.max(0.15, 1 - p.x / (W * 0.8) * 0.75);
+        for (var i = 1; i < n; i++) {
+          ctx.strokeStyle = "rgba(" + p.c + "," + ((i / n) * 0.9 * f) + ")"; ctx.lineWidth = 1.2 + (i / n) * 2;
+          ctx.beginPath(); ctx.moveTo(p.tr[2 * i - 2] + 0.5, p.tr[2 * i - 1] + 0.5); ctx.lineTo(p.tr[2 * i] + 0.5, p.tr[2 * i + 1] + 0.5); ctx.stroke();
+        }
+        ctx.shadowColor = "rgba(" + p.c + ",1)"; ctx.shadowBlur = 22; ctx.fillStyle = "rgba(" + p.c + "," + (0.95 * f) + ")";
+        ctx.beginPath(); ctx.arc(p.x + 0.5, p.y + 0.5, 3, 0, 6.2832); ctx.fill(); ctx.shadowBlur = 0;
+      });
+    }
+    function size() {
+      var dpr = Math.min(window.devicePixelRatio || 1, 2);
+      W = hero.clientWidth; H = hero.clientHeight;
+      cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr); ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ps = []; for (var i = 0, n = W < 700 ? 9 : 22; i < n; i++) ps.push(spawn());
+      for (var j = 0; j < 30; j++) ps.forEach(function (p) { step(p, 0.02); });
+      draw(0);
+    }
+    function loop(ts) {
+      if (!run) return;
+      var dt = Math.min(0.05, (ts - last) / 1000 || 0); last = ts;
+      ps.forEach(function (p) { step(p, dt); }); draw(ts); requestAnimationFrame(loop);
+    }
+    var visible = true;
+    function sync() { var want = visible && !document.hidden; if (want && !run) { run = true; last = performance.now(); requestAnimationFrame(loop); } else if (!want) { run = false; } }
+    size();
+    if ("ResizeObserver" in window) { new ResizeObserver(function () { size(); }).observe(hero); } else { window.addEventListener("resize", size); }
+    if ("IntersectionObserver" in window) { new IntersectionObserver(function (es) { visible = es[0].isIntersecting; sync(); }).observe(hero); }
+    document.addEventListener("visibilitychange", sync);
+    sync();
+  })();
+
+  /* Hero spotlight follows the pointer and the card tilts toward it (mouse devices only) */
+  (function () {
+    var hero = $("home"), card = hero.querySelector(".hero-card"), raf = 0, mx = 0, my = 0;
+    if (reduce || !window.matchMedia || !matchMedia("(hover: hover)").matches || !card) return;
+    function apply() {
+      raf = 0; var r = hero.getBoundingClientRect();
+      hero.style.setProperty("--mx", mx + "px"); hero.style.setProperty("--my", my + "px");
+      card.style.transform = "perspective(900px) rotateY(" + ((mx / r.width - 0.5) * 10) + "deg) rotateX(" + (-(my / r.height - 0.5) * 8) + "deg)";
+    }
+    hero.addEventListener("pointermove", function (e) { var r = hero.getBoundingClientRect(); mx = e.clientX - r.left; my = e.clientY - r.top; if (!raf) raf = requestAnimationFrame(apply); });
+    hero.addEventListener("pointerleave", function () { card.style.transform = ""; hero.style.removeProperty("--mx"); hero.style.removeProperty("--my"); });
+  })();
+
+  /* Sections glide in as they scroll into view. Everything stays readable (faded, not hidden) before it arrives. */
+  if (!reduce && "IntersectionObserver" in window) {
+    var seen = [], kids = new Map();
+    [].forEach.call(document.querySelectorAll("section, footer .fg"), function (sec) {
+      [].forEach.call(sec.querySelectorAll(".tag, h2, .sub, .lead, .sym, .pics, .q, .vc, .pills, .sv, .prof, .st, .box, .wc, .ci, form"), function (el) {
+        if (el.closest(".sv .im")) return;
+        var i = kids.get(el.parentNode) || 0; kids.set(el.parentNode, i + 1);
+        el.style.transitionDelay = Math.min(i, 6) * 90 + "ms"; el.classList.add("rv"); seen.push(el);
+      });
+    });
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        var el = e.target; io.unobserve(el); el.classList.add("in");
+        setTimeout(function () { el.classList.remove("rv", "in"); el.style.transitionDelay = ""; }, 1800);
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
+    seen.forEach(function (el) { io.observe(el); });
+  }
+
+  var h = $("hd");
+  function sc() { h.className = window.scrollY > 40 ? "s" : ""; }
+  sc(); window.addEventListener("scroll", sc, { passive: true });
+
+  /* The form cannot post anywhere from here, so it prepares the message to copy or open in a mail app. */
+  var fm = $("fm");
+  fm.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var v = function (n) { return fm.elements[n].value.trim(); };
+    var txt = "Name: " + v("n") + "\nCompany: " + v("c") + "\nEmail: " + v("e") + "\nPhone: " + v("p") + "\nService: " + v("s") + "\n\n" + v("m");
+    $("done-h").textContent = "Your inquiry is ready";
+    $("done-p").textContent = "This page cannot send email by itself. Copy the text below and email it to " + EMAIL + ", or call +91 7356689856.";
+    $("msg").value = txt;
+    $("mail").href = "mailto:" + EMAIL + "?subject=" + encodeURIComponent("Website inquiry") + "&body=" + encodeURIComponent(txt);
+    $("done").hidden = false;
+    $("done").scrollIntoView({ behavior: "smooth", block: "nearest" });
+  });
+  $("cp-btn").addEventListener("click", function () {
+    var btn = this, t = $("msg").value;
+    function fallback() { $("msg").focus(); $("msg").select(); btn.textContent = "Selected, press copy"; }
+    try {
+      navigator.clipboard.writeText(t).then(function () { btn.textContent = "Copied"; setTimeout(function () { btn.textContent = "Copy inquiry"; }, 1800); }, fallback);
+    } catch (err) { fallback(); }
+  });
+})();
+</script>
+</body>
+</html>
